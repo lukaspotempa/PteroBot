@@ -15,5 +15,11 @@
   "bugs": {
     "url": "https://github.com/lukaspotempa/pterodactyl_bot/issues"
   },
-  "homepage": "https://github.com/lukaspotempa/pterodactyl_bot#readme"
+  "homepage": "https://github.com/lukaspotempa/pterodactyl_bot#readme",
+  "dependencies": {
+    "discord.js": "^14.9.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.38.0"
+  }
 }
