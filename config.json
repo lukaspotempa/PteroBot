@@ -1,0 +1,7 @@
+{
+    "token": "YOUR DISCORD BOT TOKEN",
+    "clientId": "YOUR CLIENT ID",
+	"guildId": "YOUR GUILD ID",
+    "API_Key": "YOUR PTERODACTYL APPLICATION API KEY",
+    "API_Url": "YOUR PTERODACTYL PANEL URL"
+}
