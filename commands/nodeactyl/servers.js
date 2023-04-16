@@ -21,10 +21,12 @@ module.exports = {
         .setFooter({ text: 'Bot created by Avoid#6906' });
         json.data.forEach(server => {
           if (server.attributes.suspended) return;
+          const readable_date = new Date(server.attributes.created_at);
           embed.addFields(
             { name: server.attributes.name, value:
               `ID: ${server.attributes.id}
-              description: ${server.attributes.description}`,
+              description: ${server.attributes.description}
+              created: ${readable_date.toLocaleDateString()}`,
             },
           );
         });
