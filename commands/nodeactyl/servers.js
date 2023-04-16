@@ -26,7 +26,7 @@ module.exports = {
               `ID: ${server.attributes.id}
               description: ${server.attributes.description}
               created: ${readable_date.toLocaleDateString()}
-              status: ${ server.attributes.suspended ? 'suspended' : '-' }`,
+              suspension: ${ server.attributes.suspended ? 'suspended' : '-' }`,
             },
           );
         });
