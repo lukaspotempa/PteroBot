@@ -20,7 +20,6 @@ module.exports = {
         .setTimestamp()
         .setFooter({ text: 'Bot created by Avoid#6906' });
         json.data.forEach(server => {
-          const status = server.attributes.suspended ? 'suspended' : 'not suspended';
           if (server.attributes.suspended) return;
           embed.addFields(
             { name: server.attributes.name, value:
