@@ -20,12 +20,19 @@ module.exports = {
         const data = await application.getServerDetails(server_id);
         const user_data = await application.getUserDetails(data.user);
         const node_data = await application.getNodeDetails(data.node);
-        let status = data.suspended;
-        status ? 'suspended' : await client.getServerStatus(data.identifier);
-        if (!status) {
-          status = await client.getServerStatus(data.identifier);
+
+        let status = '-';
+        if (!data.suspended) {
+          const state = await client.getServerStatus(data.identifier);
+          if (state == 'running') {
+            status = `🟢 ${state}`;
+          } else if (state == 'starting') {
+            status = `🟠 ${state}`;
+          } else if (state == 'offline') {
+            status = `🔴 ${state}`;
+          }
         } else {
-          status = 'suspended';
+          status = '⚪ suspended';
         }
          const embed = new EmbedBuilder()
           .setColor('#FF0000')
