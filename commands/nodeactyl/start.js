@@ -17,13 +17,10 @@ module.exports = {
         const application = new Nodeactyl.NodeactylApplication(API_Url, API_Key);
         const client = new Nodeactyl.NodeactylClient(API_Url, Client_API_Key);
         const data = await application.getServerDetails(server_id);
-        try {
-            await client.startServer(data.identifier);
-            const message = blockQuote(`Server ${data.name} will start shortly...`);
-            return interaction.reply({ content: message });
-        } catch (error) {
-            return console.error(`An error has occured. ${error}`);
-        }
+        await client.startServer(data.identifier);
+        const message = blockQuote(`Server ${data.name} will start shortly...`);
+
+        return interaction.reply({ content: message });
     } catch (error) {
       console.error(error);
       await interaction.reply('An error occurred while fetching the JSON response. Please contact the server owner.');

@@ -17,13 +17,10 @@ module.exports = {
         const application = new Nodeactyl.NodeactylApplication(API_Url, API_Key);
         const client = new Nodeactyl.NodeactylClient(API_Url, Client_API_Key);
         const data = await application.getServerDetails(server_id);
-        try {
-            const message = blockQuote(`Server ${data.name} has been terminated.`);
-            await client.killServer(data.identifier);
-            return interaction.reply({ content: message });
-        } catch (error) {
-            console.error(`An error has occured. ${error}`);
-        }
+        const message = blockQuote(`Server ${data.name} has been terminated.`);
+        await client.killServer(data.identifier);
+
+        return interaction.reply({ content: message });
     } catch (error) {
       console.error(error);
       await interaction.reply('An error occurred while fetching the JSON response. Please contact the server owner.');
