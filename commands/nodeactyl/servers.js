@@ -1,4 +1,4 @@
-const { SlashCommandBuilder, Embed, EmbedBuilder } = require('discord.js');
+const { SlashCommandBuilder, EmbedBuilder } = require('discord.js');
 const Nodeactyl = require('nodeactyl');
 const { API_Key, API_Url, pterodactyl_img, interface_name } = require('../../config.json');
 
