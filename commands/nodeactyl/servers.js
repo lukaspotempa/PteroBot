@@ -13,20 +13,20 @@ module.exports = {
       const json = await application.getAllServers();
       const embed = new EmbedBuilder()
         .setColor('#FF0000')
-        .setTitle('All non-suspended servers:')
+        .setTitle('All servers:')
         .setURL(API_Url)
         .setAuthor({ name: interface_name + '-Bot', iconURL: pterodactyl_img, url: API_Url })
         .setThumbnail(pterodactyl_img)
         .setTimestamp()
-        .setFooter({ text: 'Bot created by Avoid#6906' });
+        .setFooter({ text: 'Bot by Avoid#6906' });
         json.data.forEach(server => {
-          if (server.attributes.suspended) return;
           const readable_date = new Date(server.attributes.created_at);
           embed.addFields(
             { name: server.attributes.name, value:
               `ID: ${server.attributes.id}
               description: ${server.attributes.description}
-              created: ${readable_date.toLocaleDateString()}`,
+              created: ${readable_date.toLocaleDateString()}
+              status: ${ server.attributes.suspended ? 'suspended' : '-' }`,
             },
           );
         });

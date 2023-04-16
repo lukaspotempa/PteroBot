@@ -1,4 +1,4 @@
-const { SlashCommandBuilder, Embed, EmbedBuilder, blockQuote, codeBlock } = require('discord.js');
+const { SlashCommandBuilder, EmbedBuilder } = require('discord.js');
 const Nodeactyl = require('nodeactyl');
 const { API_Key, API_Url, pterodactyl_img } = require('../../config.json');
 
@@ -18,7 +18,6 @@ module.exports = {
         const data = await application.getServerDetails(server_id);
         const user_data = await application.getUserDetails(data.user);
         const node_data = await application.getNodeDetails(data.node);
-        console.log(data);
          const embed = new EmbedBuilder()
           .setColor('#FF0000')
           .setTitle(data.name)
@@ -29,11 +28,11 @@ module.exports = {
           .addFields(
             { name: 'ID: ', value: data.id.toString(), inline: true },
             { name: 'status: ', value: data.suspended ? 'suspended' : 'active', inline: true },
-            { name: 'Description: ', value: (data.description.length > 0 ? data.description : ' - ') },
+            { name: 'Description: ', value: (data.description.length > 0 ? data.description : ' ') },
             { name: 'Owner: ', value: user_data.attributes.username },
             { name: 'Node: ', value: node_data.name },
           )
-          .setFooter({ text: 'Bot created by Avoid#6906' });
+          .setFooter({ text: 'Bot by Avoid#6906' });
 
           return interaction.reply({ embeds: [ embed ] });
     } catch (error) {
