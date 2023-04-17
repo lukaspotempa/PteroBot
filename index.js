@@ -1,7 +1,8 @@
 const fs = require('node:fs');
 const path = require('node:path');
 const { Client, Collection, Events, GatewayIntentBits } = require('discord.js');
-const { token } = require('./config.json');
+const monitor = require('./monitor/server_monitor');
+const { token, game_servers } = require('./config.json');
 
 const client = new Client({ intents: [GatewayIntentBits.Guilds] });
 
@@ -68,11 +69,14 @@ client.on(Events.InteractionCreate, async interaction => {
 	}
 });
 
-// When the client is ready, run this code (only once)
-// We use 'c' for the event parameter to keep it separate from the already defined 'client'
 client.once(Events.ClientReady, c => {
 	console.log(`Ready! Logged in as ${c.user.tag}`);
+	setInterval(() => {
+		if (Object.keys(game_servers).length > 0) {
+			monitor.execute(client, game_servers);
+			console.log('test');
+		}
+	}, 300000);
 });
 
-// Log in to Discord with your client's token
 client.login(token);

@@ -63,10 +63,9 @@ module.exports = {
             if (uptime_m >= 60) {
               uptime = `${ Math.floor(uptime_h) } hours and ${ Math.floor(uptime_m % 60) } minutes`;
             }
-            if (uptime_h >= 1) {
+            if (uptime_h >= 24) {
               uptime = `${ Math.floor(uptime_d) } days ${ Math.floor(uptime_h % 24) } hours and ${ Math.floor(uptime_m % 60) } minutes`;
             }
-            console.log(usage.resources);
             embed.addFields(
               { name: 'uptime: ', value: `${ uptime }` },
               { name: 'CPU usage: ', value: `${(usage.resources.cpu_absolute).toFixed(2)}%` },
