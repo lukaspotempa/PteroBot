@@ -84,7 +84,7 @@ module.exports = {
       let message = '';
       switch (error) {
         case 404:
-          message = 'The server ID could not be found.'
+          message = 'The server ID could not be found.';
           break;
         default:
           message = 'An error occurred while fetching the JSON response. Please contact the server owner.';
