@@ -7,8 +7,8 @@ module.exports = {
     .setName('command')
     .setDescription('This will prompt a command on the specified server.')
     .addStringOption(option =>
-		option.setName('server_id')
-			.setDescription('The server id. Can be retrieved through the panel or using /servers command.')
+        option.setName('server_id')
+            .setDescription('The server id. Can be retrieved through the panel or using /servers command.')
             .setRequired(true))
     .addStringOption(option =>
         option.setName('command')
