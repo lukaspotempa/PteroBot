@@ -1,6 +1,6 @@
 const { SlashCommandBuilder, EmbedBuilder } = require('discord.js');
 const Nodeactyl = require('nodeactyl');
-const { API_Key, API_Url, pterodactyl_img, Client_API_Key } = require('../../config.json');
+const { API_Key, API_Url, pterodactyl_img, Client_API_Key, bot_url } = require('../../config.json');
 
 module.exports = {
   data: new SlashCommandBuilder()
@@ -25,13 +25,16 @@ module.exports = {
         const byte_to_mb = Math.pow(1024, 2);
 
         let status = '-';
+        let color = '#8b1300';
         if (!data.suspended) {
           usage = await client.getServerUsages(data.identifier);
           const state = usage.current_state;
           if (state == 'running') {
             status = `🟢 ${state}`;
+            color = '#0B6623';
           } else if (state == 'starting') {
             status = `🟠 ${state}`;
+            color = '#ff5e00';
           } else if (state == 'offline') {
             status = `🔴 ${state}`;
           }
@@ -39,10 +42,10 @@ module.exports = {
           status = '⚪ suspended';
         }
          const embed = new EmbedBuilder()
-          .setColor('#FF0000')
+          .setColor(color)
           .setTitle(data.name)
           .setURL(`${API_Url}/server/${data.identifier}`)
-          .setAuthor({ name: interaction.client.user.username, iconURL: pterodactyl_img, url: API_Url })
+          .setAuthor({ name: interaction.client.user.username, iconURL: pterodactyl_img, url: bot_url })
           .setThumbnail(pterodactyl_img)
           .setTimestamp()
           .addFields(
@@ -78,7 +81,16 @@ module.exports = {
           return interaction.reply({ embeds: [ embed ] });
     } catch (error) {
       console.error(error);
-      await interaction.reply('An error occurred while fetching the JSON response. Please contact the server owner.');
+      let message = '';
+      switch (error) {
+        case 404:
+          message = 'The server ID could not be found.'
+          break;
+        default:
+          message = 'An error occurred while fetching the JSON response. Please contact the server owner.';
+          break;
+      }
+      return await interaction.reply(message);
     }
   },
 };

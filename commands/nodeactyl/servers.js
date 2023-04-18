@@ -1,6 +1,6 @@
 const { SlashCommandBuilder, EmbedBuilder } = require('discord.js');
 const Nodeactyl = require('nodeactyl');
-const { API_Key, API_Url, pterodactyl_img, interface_name } = require('../../config.json');
+const { API_Key, API_Url, pterodactyl_img, bot_url } = require('../../config.json');
 
 module.exports = {
   data: new SlashCommandBuilder()
@@ -12,10 +12,10 @@ module.exports = {
       const application = new Nodeactyl.NodeactylApplication(API_Url, API_Key);
       const json = await application.getAllServers();
       const embed = new EmbedBuilder()
-        .setColor('#FF0000')
+        .setColor('#0000BB')
         .setTitle('All servers:')
         .setURL(API_Url)
-        .setAuthor({ name: interface_name + '-Bot', iconURL: pterodactyl_img, url: API_Url })
+        .setAuthor({ name: interaction.client.user.username, iconURL: pterodactyl_img, url: bot_url })
         .setThumbnail(pterodactyl_img)
         .setTimestamp()
         .setFooter({ text: 'Bot by Avoid#6906' });
