@@ -1,7 +1,7 @@
 const Nodeactyl = require('nodeactyl');
 const gamedig = require('gamedig');
 const { ChannelManager, EmbedBuilder } = require('discord.js');
-const { guildId, pterodactyl_img, clientId } = require('../config.json');
+const { pterodactyl_img, clientId, bot_url } = require('../config.json');
 
 module.exports = {
 	async execute(client, game_servers) {
@@ -33,22 +33,23 @@ module.exports = {
 				.setColor(color)
 				.setTitle(server_data.password ? `🔒 ${channel_name}` : channel_name)
 				.setThumbnail(pterodactyl_img)
+				.setAuthor({ name: client.user.username, iconURL: pterodactyl_img, url: bot_url })
 				.setTimestamp()
 				.setFooter({ text: 'Bot by Avoid#6906' });
 
 				if (server_data != 'offline') {
-					let formatted_players = '';
+					let formatted_players = ' ';
 					server_data.players.forEach(p => {
 						formatted_players += `${ p.name }\n`;
 					});
 					embed.addFields(
 						{ name: 'Players: ', value: `${ server_data.players.length } / ${ server_data.maxplayers }` },
-						{ name: 'Server Ping: ', value: server_data.ping.toString() },
+						{ name: 'Ping: ', value: server_data.ping.toString() },
 						{ name: 'Connected Players: ', value: formatted_players },
 					);
 				} else {
 					embed.addFields(
-						{ name: 'Server is offline', value: ' ' },
+						{ name: 'Server is not responding.', value: ' ' },
 					);
 				}
 				if (message) {
