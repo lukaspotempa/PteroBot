@@ -2,7 +2,7 @@ const fs = require('node:fs');
 const path = require('node:path');
 const { Client, Collection, Events, GatewayIntentBits } = require('discord.js');
 const monitor = require('./monitor/server_monitor');
-const { token, game_servers } = require('./config.json');
+const { token, game_servers, update_interval } = require('./config.json');
 
 const client = new Client({ intents: [GatewayIntentBits.Guilds] });
 
@@ -74,9 +74,8 @@ client.once(Events.ClientReady, c => {
 	setInterval(() => {
 		if (Object.keys(game_servers).length > 0) {
 			monitor.execute(client, game_servers);
-			console.log('test');
 		}
-	}, 300000);
+	}, update_interval);
 });
 
 client.login(token);
