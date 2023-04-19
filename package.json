@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "commands": "node deploy-commands.js",
-    "start": "git clone https://github.com/lukaspotempa/PteroBot/ && npm install && node index.js"
+    "start": "npm install && node index.js"
   },
   "repository": {
     "type": "git",
