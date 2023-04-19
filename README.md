@@ -10,6 +10,9 @@ players listed on the server, using gamedig library.
 Note, that this is my first Discord bot. You might encounter bugs. I'd love for them
 to be reported to me directly using Discord or via Github issues.
 
+## Official Discord server:
+https://discord.gg/mp4Qxpgayx
+
 # Setup
 ## Creating the Discord bot
 You may either follow this guide, or follow the official in-depth guide provided by Discord.
