@@ -1,6 +1,6 @@
 const { SlashCommandBuilder, blockQuote } = require('discord.js');
 const Nodeactyl = require('nodeactyl');
-const { Client_API_Key, API_Key, API_Url, pterodactyl_img } = require('../../config.json');
+const { Client_API_Key, API_Key, API_Url } = require('../../config.json');
 
 module.exports = {
   data: new SlashCommandBuilder()

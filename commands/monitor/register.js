@@ -1,5 +1,4 @@
 const { SlashCommandBuilder } = require('discord.js');
-const { pterodactyl_img, game_types } = require('../../config.json');
 const fs = require('fs');
 const gamedig = require('gamedig');
 

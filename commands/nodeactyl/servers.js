@@ -1,6 +1,6 @@
 const { SlashCommandBuilder, EmbedBuilder } = require('discord.js');
 const Nodeactyl = require('nodeactyl');
-const { API_Key, API_Url, pterodactyl_img, bot_url } = require('../../config.json');
+const { API_Key, API_Url, bot_url } = require('../../config.json');
 
 module.exports = {
   data: new SlashCommandBuilder()
@@ -17,8 +17,8 @@ module.exports = {
         .setColor('#0000BB')
         .setTitle('All servers:')
         .setURL(API_Url)
-        .setAuthor({ name: interaction.client.user.username, iconURL: pterodactyl_img, url: bot_url })
-        .setThumbnail(pterodactyl_img)
+        .setAuthor({ name: interaction.client.user.username, iconURL: 'https://i.imgur.com/aBDbmTu.png', url: bot_url })
+        .setThumbnail('https://i.imgur.com/aBDbmTu.png')
         .setTimestamp()
         .setFooter({ text: 'Bot by Avoid#6906' });
         // loop over all servers and create new embed field

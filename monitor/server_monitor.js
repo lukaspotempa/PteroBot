@@ -1,7 +1,7 @@
 const Nodeactyl = require('nodeactyl');
 const gamedig = require('gamedig');
-const { ChannelManager, EmbedBuilder } = require('discord.js');
-const { pterodactyl_img, clientId, bot_url } = require('../config.json');
+const { EmbedBuilder } = require('discord.js');
+const { clientId, bot_url } = require('../config.json');
 
 module.exports = {
 	async execute(client, game_servers) {
@@ -33,8 +33,8 @@ module.exports = {
 				const embed = new EmbedBuilder()
 				.setColor(color)
 				.setTitle(server_data.password ? `🔒 ${channel_name}` : channel_name)
-				.setThumbnail(pterodactyl_img)
-				.setAuthor({ name: client.user.username, iconURL: pterodactyl_img, url: bot_url })
+				.setThumbnail('https://i.imgur.com/aBDbmTu.png')
+				.setAuthor({ name: client.user.username, iconURL: 'https://i.imgur.com/aBDbmTu.png', url: bot_url })
 				.setTimestamp()
 				.setFooter({ text: 'Bot by Avoid#6906' });
 
