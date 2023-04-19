@@ -11,6 +11,11 @@ Note, that this is my first Discord bot. You might encounter bugs. I'd love for 
 to be reported to me directly using Discord or via Github issues.
 https://discord.gg/mp4Qxpgayx
 
+# Examples
+<img src="https://i.imgur.com/kMo6asv.png" />
+<img src="https://i.imgur.com/8nLwtyX.png" />
+<img src="https://i.imgur.com/ggTbsYU.png" />
+
 # Setup
 ## Creating the Discord bot
 You may either follow this guide, or follow the official in-depth guide provided by Discord.
@@ -115,8 +120,3 @@ You can leave the game servers empty and add them manually using the /register c
 The bot is ready to be started!
 
 Provided, you have npm installed, you can run the bot using `npm start`.
-
-# Examples
-<img src="https://i.imgur.com/kMo6asv.png" />
-<img src="https://i.imgur.com/8nLwtyX.png" />
-<img src="https://i.imgur.com/ggTbsYU.png" />
