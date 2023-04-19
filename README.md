@@ -110,6 +110,8 @@ Instructions on how to obtain them, can easily be found online.
 You can leave the game servers empty and add them manually using the /register command once the bot is running.
 3. The bot is ready to be started!
 
+Provided, you have npm installed, you can run the bot using `npm start`.
+
 # Examples
 <img src="https://i.imgur.com/kMo6asv.png" />
 <img src="https://i.imgur.com/8nLwtyX.png" />
