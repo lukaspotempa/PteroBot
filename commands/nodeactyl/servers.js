@@ -5,12 +5,14 @@ const { API_Key, API_Url, pterodactyl_img, bot_url } = require('../../config.jso
 module.exports = {
   data: new SlashCommandBuilder()
     .setName('servers')
-    .setDescription('Lists all not suspended servers.'),
+    .setDescription('Lists all servers fetched through Pterodactyl.'),
 
   async execute(interaction) {
     try {
       const application = new Nodeactyl.NodeactylApplication(API_Url, API_Key);
       const json = await application.getAllServers();
+
+      // create the embed
       const embed = new EmbedBuilder()
         .setColor('#0000BB')
         .setTitle('All servers:')
@@ -19,6 +21,7 @@ module.exports = {
         .setThumbnail(pterodactyl_img)
         .setTimestamp()
         .setFooter({ text: 'Bot by Avoid#6906' });
+        // loop over all servers and create new embed field
         json.data.forEach(server => {
           const readable_date = new Date(server.attributes.created_at);
           embed.addFields(
@@ -30,10 +33,10 @@ module.exports = {
             },
           );
         });
-      return interaction.reply({ embeds: [ embed ] });
+      return await interaction.reply({ embeds: [ embed ] });
     } catch (error) {
       console.error(error);
-      await interaction.reply('An error occurred while fetching the JSON response. Please contact the server owner.');
+      return await interaction.reply('An error occurred while fetching the JSON response. Please contact the server owner.');
     }
   },
 };

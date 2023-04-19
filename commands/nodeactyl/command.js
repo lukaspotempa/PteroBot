@@ -7,26 +7,28 @@ module.exports = {
     .setName('command')
     .setDescription('This will prompt a command on the specified server.')
     .addStringOption(option =>
-        option.setName('server_id')
-            .setDescription('The server id. Can be retrieved through the panel or using /servers command.')
-            .setRequired(true))
+      option.setName('server_id')
+        .setDescription('The server id. Can be retrieved through the panel or using /servers command.')
+        .setRequired(true))
     .addStringOption(option =>
-        option.setName('command')
-            .setDescription('The command you want the server to prompt.')
-            .setRequired(true)),
+      option.setName('command')
+        .setDescription('The command you want the server to prompt.')
+        .setRequired(true)),
   async execute(interaction) {
     try {
-        const server_id = interaction.options.getString('server_id');
-        const cmd = interaction.options.getString('command');
+      const server_id = interaction.options.getString('server_id');
+      const cmd = interaction.options.getString('command');
 
-        const application = new Nodeactyl.NodeactylApplication(API_Url, API_Key);
-        const client = new Nodeactyl.NodeactylClient(API_Url, Client_API_Key);
-        const data = await application.getServerDetails(server_id);
+      // establish nodeactyl API connection
+      const application = new Nodeactyl.NodeactylApplication(API_Url, API_Key);
+      const client = new Nodeactyl.NodeactylClient(API_Url, Client_API_Key);
+      const data = await application.getServerDetails(server_id);
 
-        await client.sendServerCommand(data.identifier, cmd);
-        const message = blockQuote(`Command ${cmd} has been executed on server ${data.name}.`);
+      // Sends the command to the server
+      await client.sendServerCommand(data.identifier, cmd);
+      const message = blockQuote(`Command ${cmd} has been executed on server ${data.name}.`);
 
-        return interaction.reply({ content: message });
+      return interaction.reply({ content: message });
     } catch (error) {
       console.error(error);
       await interaction.reply('An error occurred while fetching the JSON response. Please contact the server owner.');
