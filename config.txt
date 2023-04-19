@@ -1,0 +1,13 @@
+{
+  "bot_url": "https://github.com/lukaspotempa/pterodactyl_bot",
+  "token": "YOUR DISCORD BOT TOKEN, REFER TO README",
+  "clientId": "YOUR DISCORD CLIENT ID",
+  "guildId": "YOUR DISCORD SERVER ID",
+  "API_Key": "YOUR PTERODACTYL APPLICATION API KEY, REFER TO README",
+  "Client_API_Key": "YOUR PTERODACTYL CLIENT API KEY, REFER TO README",
+  "API_Url": "API URL, YOUR PTERODACTYL PANEL URL",
+  "game_servers": [
+    // LEAVE EMPTY TO DISABLE
+  ],
+  "update_interval": 300000 //UPDATE INTERVAL IN MILLISECONDS, DEFAULT 5MIN
+}
