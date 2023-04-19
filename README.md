@@ -6,9 +6,8 @@ alongside with game server monitoring, meaning you can add game servers to the b
 and the bot will refresh information about the game server, for e.g. the current
 players listed on the server, using gamedig library. 
 
-![Example 1]('https://i.imgur.com/ggTbsYU.png')
-![Example 2]('https://i.imgur.com/KO5s2LM.png')
-![Example 3]('https://i.imgur.com/al26aS5.png')
-
+<img src="https://i.imgur.com/ggTbsYU.png">
+<img src="https://i.imgur.com/KO5s2LM.png">
+<img src="https://i.imgur.com/al26aS5.png">
 
 # Setup
