@@ -7,6 +7,8 @@ This is a basic Discord bot to run API commands for Pterodactyl Panel V1 or high
 alongside with game server monitoring, meaning you can add game servers to the bot
 and the bot will refresh information about the game server, for e.g. the current
 players listed on the server, using gamedig library. 
+Note, that this is my first Discord bot. You might encounter bugs. I'd love for them
+to be reported to me directly using Discord or via Github issues.
 
 # Setup
 ## Creating the Discord bot
