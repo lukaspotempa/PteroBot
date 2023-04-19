@@ -1,4 +1,4 @@
-const { SlashCommandBuilder } = require('discord.js');
+const { SlashCommandBuilder, blockQuote } = require('discord.js');
 const fs = require('fs');
 const gamedig = require('gamedig');
 
@@ -61,7 +61,7 @@ module.exports = {
         });
       } catch (error) {
         console.log(error);
-        return await interaction.reply('The server did not respond. Verify the data you provided.');
+        return await interaction.reply(blockQuote('The server did not respond. Verify the data you provided.'));
       }
 
       // Writes the config for the provided data
@@ -75,7 +75,7 @@ module.exports = {
       const new_json = JSON.stringify(data);
       fs.writeFileSync('config.json', new_json, 'utf8');
 
-      const message = 'A new server was registered to server monitoring. Bot needs to be restarted.';
+      const message = blockQuote('A new server was registered to server monitoring. Bot needs to be restarted.');
       return await interaction.reply({ content: message });
     } catch (error) {
       console.error(error);
