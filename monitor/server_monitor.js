@@ -8,6 +8,7 @@ module.exports = {
 		try {
 			game_servers.forEach(async server => {
 				const channel = client.channels.cache.find(c => c == server.channel_id);
+				if (!channel) { return console.error('No channel has been found with the correspondig ID: %d', server.channel_id); }
 				let channel_name = channel.name;
 				let server_data = 'offline';
 				try {
