@@ -1,5 +1,4 @@
 {
-  "bot_url": "https://github.com/lukaspotempa/pterodactyl_bot",
   "token": "YOUR DISCORD BOT TOKEN, REFER TO README",
   "clientId": "YOUR DISCORD CLIENT ID",
   "guildId": "YOUR DISCORD SERVER ID",
