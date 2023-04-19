@@ -105,10 +105,10 @@ Your API key should look something like this `ptla_VmBia0L4YNGvkpixMYDrKJJWw15si
 ```
 To get your client and guild ID, you need to enable the developer settings in Discord and copy them.
 Instructions on how to obtain them, can easily be found online.
-3. The bot is ready to start!
+You can leave the game servers empty and add them manually using the /register command once the bot is running.
+3. The bot is ready to be started!
 
 # Examples
 <img src="https://i.imgur.com/kMo6asv.png" />
 <img src="https://i.imgur.com/8nLwtyX.png" />
 <img src="https://i.imgur.com/ggTbsYU.png" />
-<img src="https://i.imgur.com/al26aS5.png" />
