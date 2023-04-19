@@ -1,6 +1,6 @@
 const { SlashCommandBuilder, EmbedBuilder } = require('discord.js');
 const Nodeactyl = require('nodeactyl');
-const { API_Key, API_Url, bot_url } = require('../../config.json');
+const { API_Key, API_Url } = require('../../config.json');
 
 module.exports = {
   data: new SlashCommandBuilder()
@@ -17,7 +17,7 @@ module.exports = {
         .setColor('#0000BB')
         .setTitle('All servers:')
         .setURL(API_Url)
-        .setAuthor({ name: interaction.client.user.username, iconURL: 'https://i.imgur.com/aBDbmTu.png', url: bot_url })
+        .setAuthor({ name: interaction.client.user.username, iconURL: 'https://i.imgur.com/aBDbmTu.png', url: 'https://github.com/lukaspotempa/PteroBot' })
         .setThumbnail('https://i.imgur.com/aBDbmTu.png')
         .setTimestamp()
         .setFooter({ text: 'Bot by Avoid#6906' });

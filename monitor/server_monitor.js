@@ -1,7 +1,7 @@
 const Nodeactyl = require('nodeactyl');
 const gamedig = require('gamedig');
 const { EmbedBuilder } = require('discord.js');
-const { clientId, bot_url } = require('../config.json');
+const { clientId } = require('../config.json');
 
 module.exports = {
 	async execute(client, game_servers) {
@@ -34,7 +34,7 @@ module.exports = {
 				.setColor(color)
 				.setTitle(server_data.password ? `🔒 ${channel_name}` : channel_name)
 				.setThumbnail('https://i.imgur.com/aBDbmTu.png')
-				.setAuthor({ name: client.user.username, iconURL: 'https://i.imgur.com/aBDbmTu.png', url: bot_url })
+				.setAuthor({ name: client.user.username, iconURL: 'https://i.imgur.com/aBDbmTu.png', url: 'https://github.com/lukaspotempa/PteroBot' })
 				.setTimestamp()
 				.setFooter({ text: 'Bot by Avoid#6906' });
 

@@ -1,6 +1,6 @@
 const { SlashCommandBuilder, EmbedBuilder } = require('discord.js');
 const Nodeactyl = require('nodeactyl');
-const { API_Key, API_Url, Client_API_Key, bot_url } = require('../../config.json');
+const { API_Key, API_Url, Client_API_Key } = require('../../config.json');
 
 module.exports = {
   data: new SlashCommandBuilder()
@@ -50,7 +50,7 @@ module.exports = {
        .setColor(color)
        .setTitle(data.name)
        .setURL(`${API_Url}/server/${data.identifier}`)
-       .setAuthor({ name: interaction.client.user.username, iconURL: 'https://i.imgur.com/aBDbmTu.png', url: bot_url })
+       .setAuthor({ name: interaction.client.user.username, iconURL: 'https://i.imgur.com/aBDbmTu.png', url: 'https://github.com/lukaspotempa/PteroBot' })
        .setThumbnail('https://i.imgur.com/aBDbmTu.png')
        .setTimestamp()
        .addFields(
