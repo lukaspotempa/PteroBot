@@ -24,7 +24,7 @@ module.exports = {
       const client = new Nodeactyl.NodeactylClient(API_Url, Client_API_Key);
       const data = await application.getServerDetails(server_id);
 
-      // Sends the command to the server
+      // Sends the command to the server | TODO: try catch
       await client.sendServerCommand(data.identifier, cmd);
       const message = blockQuote(`Command ${cmd} has been executed on server ${data.name}.`);
 
