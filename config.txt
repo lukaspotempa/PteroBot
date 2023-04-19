@@ -9,5 +9,5 @@
   "game_servers": [
     // LEAVE EMPTY TO DISABLE
   ],
-  "update_interval": 300000 //UPDATE INTERVAL IN MILLISECONDS, DEFAULT 5MIN
+  "update_interval": 60000 //UPDATE INTERVAL IN MILLISECONDS, DEFAULT 1MIN
 }
