@@ -74,6 +74,7 @@ client.once(Events.ClientReady, c => {
 	setInterval(() => {
 		if (Object.keys(game_servers).length > 0) {
 			monitor.execute(client, game_servers);
+			console.log('Game monitor refreshed.');
 		}
 	}, update_interval);
 });
