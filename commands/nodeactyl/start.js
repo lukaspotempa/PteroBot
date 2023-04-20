@@ -17,7 +17,8 @@ module.exports = {
       const application = new Nodeactyl.NodeactylApplication(API_Url, API_Key);
       const client = new Nodeactyl.NodeactylClient(API_Url, Client_API_Key);
       const data = await application.getServerDetails(server_id);
-      await client.startServer(data.identifier);
+      try { await client.startServer(data.identifier); }
+      catch (error) { console.error(error); return await interaction.reply('The server could not be started.'); }
       const message = blockQuote(`Server ${data.name} will start shortly...`);
 
       return await interaction.reply({ content: message });

@@ -25,7 +25,8 @@ module.exports = {
       const data = await application.getServerDetails(server_id);
 
       // Sends the command to the server | TODO: try catch
-      await client.sendServerCommand(data.identifier, cmd);
+      try { await client.sendServerCommand(data.identifier, cmd); }
+      catch (error) { console.error(error); return interaction.reply('The server could not process the command.'); }
       const message = blockQuote(`Command ${cmd} has been executed on server ${data.name}.`);
 
       return interaction.reply({ content: message });
