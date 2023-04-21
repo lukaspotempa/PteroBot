@@ -30,8 +30,8 @@ module.exports = {
 						channel_name = `🔴᲼${ channel_name }`;
 					}
 				}
-				// Set the channel name
-				channel.setName(channel_name);
+				// Set the channel name if it's not the same
+				if (channel.name != channel_name) { channel.setName(channel_name); }
 				const messages = await channel.messages.fetch({ limit: 1 });
 				const message = messages.first();
 				// checks if status is green to set embed color to either green or red
