@@ -1,4 +1,3 @@
-const Nodeactyl = require('nodeactyl');
 const gamedig = require('gamedig');
 const { EmbedBuilder } = require('discord.js');
 const { clientId } = require('../config.json');
@@ -31,7 +30,7 @@ module.exports = {
 					}
 				}
 				// Set the channel name if it's not the same
-				if (channel.name != channel_name) { channel.setName(channel_name); }
+				if (channel.name != channel_name) { await channel.setName(channel_name); }
 				const messages = await channel.messages.fetch({ limit: 1 });
 				const message = messages.first();
 				// checks if status is green to set embed color to either green or red
