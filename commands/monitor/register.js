@@ -5,7 +5,7 @@ const gamedig = require('gamedig');
 module.exports = {
   data: new SlashCommandBuilder()
     .setName('register')
-    .setDescription('Registers a server to the game monitoring config.')
+    .setDescription('Registers a server to the game monitoring config. Target server must be running for this.')
     .addStringOption(option =>
       option.setName('host')
         .setDescription('The server host, ip of the targeting server. (e.g. minecraft.server.net).')
@@ -43,7 +43,11 @@ module.exports = {
           { name: 'The Forest', value: 'forrest' },
           { name: 'Valheim', value: 'valheim' },
           )
-        .setRequired(true)),
+        .setRequired(true))
+
+    .addStringOption(option =>
+      option.setName('channel_name')
+        .setDescription('The desired channel name, e.g. Minecraft-Server 1. If no name provided, response name will be used.')),
 
   async execute(interaction) {
     try {
@@ -51,6 +55,7 @@ module.exports = {
       const query_port = interaction.options.getString('query_port');
       const game_type = interaction.options.getString('game_type');
       const channel_id = interaction.options.getString('channel_id');
+      const channel_name = interaction.options.getString('channel_name');
 
       // fetches the server data to check if server is responding
       try {
@@ -69,7 +74,7 @@ module.exports = {
       const data = JSON.parse(json);
 
       data.game_servers.push({
-        host: host, query_port: query_port, game_type: game_type, channel_id: channel_id,
+        channel_name: channel_name, host: host, query_port: query_port, game_type: game_type, channel_id: channel_id,
       });
 
       const new_json = JSON.stringify(data);

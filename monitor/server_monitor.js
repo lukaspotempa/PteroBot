@@ -7,29 +7,36 @@ module.exports = {
 	async execute(client, game_servers) {
 		try {
 			game_servers.forEach(async server => {
+				// query for the channel by id
 				const channel = client.channels.cache.find(c => c == server.channel_id);
 				if (!channel) { return console.error('No channel has been found with the correspondig ID: %d', server.channel_id); }
-				let channel_name = channel.name;
+				// checks whether the entry has a custom name set, and if so, use it
+				let channel_name = server.channel_name ? server.channel_name : channel.name;
 				let server_data = 'offline';
+				// ping the server and get the data
 				try {
 					server_data = await gamedig.query({
 						type: server.game_type,
 						host: server.host,
 						port: server.query_port,
 					});
-					channel_name = `🟢᲼${ server_data.name }`;
+					// if server responds, add green status circle to name
+					channel_name = server.channel_name ? `🟢᲼${ channel_name }` : `🟢᲼${ server_data.name }`;
 				} catch (error) {
+					// if server doesn't respond replace green with red status circle
 					if (channel_name.includes('🟢')) {
 						channel_name = channel_name.replace('🟢', '🔴');
 					} else if (!channel_name.includes('🔴')) {
 						channel_name = `🔴᲼${ channel_name }`;
 					}
 				}
+				// Set the channel name
 				channel.setName(channel_name);
 				const messages = await channel.messages.fetch({ limit: 1 });
 				const message = messages.first();
+				// checks if status is green to set embed color to either green or red
 				const color = channel_name.includes('🟢') ? '#0B6623' : '#8b1300';
-
+				// create status embed for in-channel info
 				const embed = new EmbedBuilder()
 				.setColor(color)
 				.setTitle(server_data.password ? `🔒 ${channel_name}` : channel_name)
