@@ -28,10 +28,11 @@ and create a new application.
 You can upload a custom image and change the description to fit you.
 
 ## Getting the token
-1. Once the the bot was created, you may navigate to the **OAuth2** tab. 
-2. A **client secret** should be displaying. In case it doesn't, press the **reset** button.
+1. Once the the bot was created, you may navigate to the **Bot** tab. 
+2. A **token** should be displaying. In case it doesn't, press the **reset** button.
 3. Now copy the token using the **copy** button. Make sure to keep it a secret!
-The token should look something like this `k8PMC5UJecnG_6bFsJz71GoXpl7Fn2lX`.
+4. Navigate to the **OAuth2** tab and copy the client id and save both of them. You will need them later on.
+The token should look something like this `MTA5OTM0MjkzMzA5MTY4NDQ4NA.GWyEou.QwYuwmJY3CrdWyOWHCeBFGJuvQ2qw7KUJ4qyfA`.
 
 ## Inviting the bot and setting up permission
 1. Under the **OAuth2** tab, head to the **URL Generator** tab.
@@ -95,6 +96,7 @@ Your API key should look something like this `ptla_VmBia0L4YNGvkpixMYDrKJJWw15si
 1. Duplicate the `config.txt` file and change it's name to `config.json`.
 2. Put in the required data. This is an example for a config setup properly
 ```
+(Don't bother, none of these keys will work.)
 {
   "token": "k8PMC5UJecnG_6bFsJz71GoXpl7Fn2lX",
   "clientId": "236082439564148531",
@@ -110,13 +112,15 @@ Your API key should look something like this `ptla_VmBia0L4YNGvkpixMYDrKJJWw15si
       "channel_id": "1097237214935734511"
     },
   ],
-  "update_interval": 300000
+  "update_interval": 60000
 }
 ```
-To get your client and guild ID, you need to enable the developer settings in Discord and copy them.
-Instructions on how to obtain them, can easily be found online.
-You can leave the game servers empty and add them manually using the /register command once the bot is running.
+
+To get your guild ID, you need to enable the developer settings in Discord and copy it.
+Instructions on how to obtain it, can easily be found online.
+You can leave the game servers array empty and add them manually using the /register command once the bot is running.
 
 The bot is ready to be started!
 
-Provided, you have npm installed, you can run the bot using `npm start`.
+First run `npm run commands` to deploy the commands and make them accessible inside your Discord server.
+Provided, you have npm installed, you can now run the bot using `npm start`.
