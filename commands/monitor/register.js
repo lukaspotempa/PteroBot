@@ -42,6 +42,7 @@ module.exports = {
           { name: 'Squad', value: 'squad' },
           { name: 'The Forest', value: 'forrest' },
           { name: 'Valheim', value: 'valheim' },
+          { name: 'Space Engineers', value: 'spaceengineers' },
           )
         .setRequired(true))
 
