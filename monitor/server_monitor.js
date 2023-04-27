@@ -61,10 +61,12 @@ module.exports = {
 				}
 				if (message) {
 					if (message.author.id == clientId) {
+						console.log(message.author.id);
+						console.log(clientId);
 						return await message.edit({ embeds: [ embed ] });
+					} else {
+						return await channel.send({ embeds: [ embed ] });
 					}
-				} else {
-					return await channel.send({ embeds: [ embed ] });
 				}
 			});
 		} catch (error) {
