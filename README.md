@@ -9,7 +9,6 @@ and the bot will refresh information about the game server, for e.g. the current
 players listed on the server, using gamedig library. 
 Note, that this is my first Discord bot. You might encounter bugs. I'd love for them
 to be reported to me directly using Discord or via Github issues.
-https://discord.gg/mp4Qxpgayx
 
 # Examples
 <img src="https://i.imgur.com/kMo6asv.png" />
